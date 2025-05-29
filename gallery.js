@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Existing gallery code
     const gallery = document.getElementById('gallery');
     const imageFiles = [
         'design1.jpg',
@@ -22,9 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
         dot.className = 'gallery-dot';
         if (index === 0) dot.classList.add('active');
         
-        // Add touch and click handlers
         const handleDotClick = (e) => {
-            e.preventDefault(); // Prevent default touch behavior
+            e.preventDefault();
             currentImageIndex = index;
             openModal(imageFiles[index]);
             updateDots();
@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
         dotsContainer.appendChild(dot);
     });
 
-    // Update dots active state
     function updateDots() {
         const dots = document.querySelectorAll('.gallery-dot');
         dots.forEach((dot, i) => {
@@ -44,22 +43,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Create modal elements
     const modal = document.createElement('div');
     modal.className = 'modal';
     modal.innerHTML = `
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close">×</span>
             <img id="modal-image" src="" alt="Full size image">
             <div class="modal-controls">
-                <button class="modal-nav-btn prev-btn">&#10094;</button>
-                <button class="modal-nav-btn next-btn">&#10095;</button>
+                <button class="modal-nav-btn prev-btn">❮</button>
+                <button class="modal-nav-btn next-btn">❯</button>
             </div>
         </div>
     `;
     document.body.appendChild(modal);
 
-    // Modal elements
     const modalImg = modal.querySelector('#modal-image');
     const closeBtn = modal.querySelector('.close');
     const prevBtn = modal.querySelector('.prev-btn');
@@ -68,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let touchStartX = 0;
     let touchEndX = 0;
 
-    // Load all 8 images
     imageFiles.forEach((filename, index) => {
         const item = document.createElement('div');
         item.className = 'gallery-item';
@@ -77,12 +73,10 @@ document.addEventListener('DOMContentLoaded', () => {
         img.src = `image/designs/${filename}`;
         img.alt = 'Design Image';
         
-        // Add view full overlay
         const overlay = document.createElement('div');
         overlay.className = 'view-full-overlay';
         overlay.innerHTML = '<button class="view-full-btn">View Full</button>';
         
-        // Enhanced error handling
         img.onerror = function() {
             const errorDiv = document.createElement('div');
             errorDiv.className = 'image-error';
@@ -96,7 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
             this.parentNode.replaceChild(errorDiv, this);
         };
         
-        // View full button click handler
         const handleViewFull = (e) => {
             e.preventDefault();
             currentImageIndex = index;
@@ -112,7 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
         gallery.appendChild(item);
     });
 
-    // Modal functions
     function openModal(filename) {
         modal.style.display = 'block';
         modalImg.src = `image/designs/${filename}`;
@@ -137,7 +129,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateDots();
     }
 
-    // Touch event handlers for modal
     modal.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
     }, { passive: true });
@@ -160,19 +151,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Event listeners for modal
     closeBtn.addEventListener('click', closeModal);
     prevBtn.addEventListener('click', showPrevImage);
     nextBtn.addEventListener('click', showNextImage);
 
-    // Close modal when clicking outside the image
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
             closeModal();
         }
     });
 
-    // Keyboard navigation
     document.addEventListener('keydown', (e) => {
         if (modal.style.display === 'block') {
             switch(e.key) {
@@ -188,4 +176,22 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
-}); 
+
+    // New hamburger menu functionality
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('open');
+        navToggle.classList.toggle('open');
+    });
+
+    // Close menu when a link is clicked
+    const navLinks = document.querySelectorAll('.nav-menu li a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('open');
+            navToggle.classList.remove('open');
+        });
+    });
+});

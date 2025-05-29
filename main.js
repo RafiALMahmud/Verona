@@ -3,7 +3,6 @@ const galleryImages = document.querySelectorAll('.gallery-img');
 const prevBtn = document.querySelector('.gallery-prev');
 const nextBtn = document.querySelector('.gallery-next');
 const dotsContainer = document.querySelector('.gallery-dots');
-const toggleSlideshowBtn = document.getElementById('toggle-slideshow');
 let currentIndex = 0;
 let intervalId;
 let isPlaying = true;
@@ -72,18 +71,6 @@ function resetSlideshow() {
     startSlideshow();
 }
 
-// Toggle slideshow play/pause
-function toggleSlideshow() {
-    isPlaying = !isPlaying;
-    toggleSlideshowBtn.textContent = isPlaying ? 'Pause Slideshow' : 'Play Slideshow';
-    
-    if (isPlaying) {
-        startSlideshow();
-    } else {
-        stopSlideshow();
-    }
-}
-
 // Event listeners for gallery
 nextBtn.addEventListener('click', () => {
     nextImage();
@@ -107,9 +94,6 @@ galleryImages.forEach((img, index) => {
         openFullImageModal(img.src, index, galleryImages);
     });
 });
-
-// Toggle slideshow button
-toggleSlideshowBtn.addEventListener('click', toggleSlideshow);
 
 // View Gallery Full Image button functionality
 const viewGalleryFullBtn = document.getElementById('view-gallery-full');
