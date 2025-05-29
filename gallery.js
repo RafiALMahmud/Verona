@@ -11,6 +11,32 @@ document.addEventListener('DOMContentLoaded', () => {
         'design8.jpg'
     ];
 
+    // Create dots container
+    const dotsContainer = document.createElement('div');
+    dotsContainer.className = 'gallery-dots';
+    gallery.parentNode.insertBefore(dotsContainer, gallery.nextSibling);
+
+    // Create dots
+    imageFiles.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.className = 'gallery-dot';
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+            currentImageIndex = index;
+            openModal(imageFiles[index]);
+            updateDots();
+        });
+        dotsContainer.appendChild(dot);
+    });
+
+    // Update dots active state
+    function updateDots() {
+        const dots = document.querySelectorAll('.gallery-dot');
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentImageIndex);
+        });
+    }
+
     // Create modal elements
     const modal = document.createElement('div');
     modal.className = 'modal';
@@ -65,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         overlay.querySelector('.view-full-btn').addEventListener('click', () => {
             currentImageIndex = index;
             openModal(filename);
+            updateDots();
         });
         
         item.appendChild(img);
@@ -77,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.style.display = 'block';
         modalImg.src = `image/designs/${filename}`;
         document.body.style.overflow = 'hidden';
+        updateDots();
     }
 
     function closeModal() {
@@ -87,11 +115,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function showNextImage() {
         currentImageIndex = (currentImageIndex + 1) % imageFiles.length;
         modalImg.src = `image/designs/${imageFiles[currentImageIndex]}`;
+        updateDots();
     }
 
     function showPrevImage() {
         currentImageIndex = (currentImageIndex - 1 + imageFiles.length) % imageFiles.length;
         modalImg.src = `image/designs/${imageFiles[currentImageIndex]}`;
+        updateDots();
     }
 
     // Event listeners for modal
