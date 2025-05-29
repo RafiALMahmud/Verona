@@ -10,7 +10,12 @@
     <header>
         <nav>
             <div class="logo">Luxury Stones</div>
-            <ul>
+            <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul id="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#products">Products</a></li>
                 <li><a href="#services">Services</a></li>
@@ -93,5 +98,16 @@
             <p>&copy; 2024 Luxury Stones. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+    // Hamburger menu toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    navToggle.addEventListener('click', function() {
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', !expanded);
+        navMenu.classList.toggle('open');
+    });
+    </script>
 </body>
 </html> 
