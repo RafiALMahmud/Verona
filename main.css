@@ -697,4 +697,58 @@ section, .product-card, .service-card {
 }
 .service-card {
     animation-delay: 0.4s;
+}
+
+/* Hamburger menu styles */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+}
+.nav-toggle .bar {
+    width: 28px;
+    height: 4px;
+    background: #2c3e50;
+    margin: 4px 0;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: flex;
+    }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 56px;
+        left: 0;
+        width: 100vw;
+        background: #fff;
+        box-shadow: 0 4px 24px rgba(44,62,80,0.10);
+        z-index: 1050;
+        padding: 2rem 0 1rem 0;
+        margin: 0;
+        border-radius: 0 0 18px 18px;
+    }
+    nav ul.open {
+        display: flex;
+    }
+    nav ul li {
+        margin: 1rem 0;
+        width: 100%;
+        text-align: center;
+    }
+    nav ul li a {
+        font-size: 1.2rem;
+        padding: 1rem 0;
+    }
 } 
