@@ -38,63 +38,8 @@ nav {
 
 .logo {
     font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
     color: var(--secondary-color);
-}
-
-.logo-content {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.logo-svg {
-    width: 150px;
-    height: 60px;
-}
-
-.logo-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.logo-text h1 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--secondary-color);
-    letter-spacing: 0.05em;
-    margin: 0;
-    line-height: 1.2;
-}
-
-.logo-text h2 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--secondary-color);
-    letter-spacing: 0.05em;
-    margin: 0;
-    line-height: 1.2;
-}
-
-.logo-divider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0.25rem 0;
-}
-
-.logo-divider .divider-line {
-    height: 1px;
-    background-color: var(--secondary-color);
-    width: 1rem;
-    opacity: 0.5;
-}
-
-.logo-divider span {
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--secondary-color);
-    margin: 0 0.5rem;
 }
 
 nav ul {
@@ -670,21 +615,6 @@ footer {
         margin-left: 0;
         margin-top: 1rem;
     }
-
-    .logo-content {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .logo-svg {
-        width: 120px;
-        height: 48px;
-    }
-
-    .logo-text h1,
-    .logo-text h2 {
-        font-size: 1rem;
-    }
 }
 
 @media (max-width: 480px) {
@@ -707,40 +637,4 @@ footer {
     .gallery-images {
         height: 40vh;
     }
-}
-
-/* Loading Screen Styles */
-.loading-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom right, #f9fafb, #f3f4f6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    opacity: 1;
-    transition: opacity 1s ease;
-}
-
-.loading-screen .logo-container {
-    animation: logoAppear 1s ease forwards;
-}
-
-@keyframes logoAppear {
-    0% {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-.main-content {
-    opacity: 0;
-    transition: opacity 1s ease;
 }
