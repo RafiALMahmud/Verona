@@ -234,15 +234,21 @@ h1 {
     justify-content: center;
     gap: 0.5rem;
     margin: 1.5rem 0;
+    padding: 0.5rem;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 10;
 }
 
 .gallery-dot {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background: #ccc;
     cursor: pointer;
     transition: all 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 .gallery-dot.active {
@@ -252,4 +258,20 @@ h1 {
 
 .gallery-dot:hover {
     background: #d4af37;
+}
+
+@media (max-width: 768px) {
+    .gallery-dots {
+        gap: 0.4rem;
+        margin: 1rem 0;
+    }
+
+    .gallery-dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    .gallery-dot.active {
+        transform: scale(1.1);
+    }
 } 

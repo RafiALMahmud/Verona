@@ -21,11 +21,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const dot = document.createElement('div');
         dot.className = 'gallery-dot';
         if (index === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => {
+        
+        // Add touch and click handlers
+        const handleDotClick = (e) => {
+            e.preventDefault(); // Prevent default touch behavior
             currentImageIndex = index;
             openModal(imageFiles[index]);
             updateDots();
-        });
+        };
+        
+        dot.addEventListener('click', handleDotClick);
+        dot.addEventListener('touchstart', handleDotClick, { passive: false });
+        
         dotsContainer.appendChild(dot);
     });
 
@@ -58,6 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = modal.querySelector('.prev-btn');
     const nextBtn = modal.querySelector('.next-btn');
     let currentImageIndex = 0;
+    let touchStartX = 0;
+    let touchEndX = 0;
 
     // Load all 8 images
     imageFiles.forEach((filename, index) => {
@@ -88,11 +97,15 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         
         // View full button click handler
-        overlay.querySelector('.view-full-btn').addEventListener('click', () => {
+        const handleViewFull = (e) => {
+            e.preventDefault();
             currentImageIndex = index;
             openModal(filename);
             updateDots();
-        });
+        };
+        
+        overlay.querySelector('.view-full-btn').addEventListener('click', handleViewFull);
+        overlay.querySelector('.view-full-btn').addEventListener('touchstart', handleViewFull, { passive: false });
         
         item.appendChild(img);
         item.appendChild(overlay);
@@ -122,6 +135,29 @@ document.addEventListener('DOMContentLoaded', () => {
         currentImageIndex = (currentImageIndex - 1 + imageFiles.length) % imageFiles.length;
         modalImg.src = `image/designs/${imageFiles[currentImageIndex]}`;
         updateDots();
+    }
+
+    // Touch event handlers for modal
+    modal.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    modal.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                showNextImage();
+            } else {
+                showPrevImage();
+            }
+        }
     }
 
     // Event listeners for modal
