@@ -183,32 +183,46 @@ nav ul li a:hover::after {
 }
 
 .product-card {
-    background: white;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 6px 32px rgba(44,62,80,0.10);
-    transition: all 0.4s ease;
     position: relative;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 6px 32px rgba(44,62,80,0.10);
+    border: 2px solid #f7e9d7;
     overflow: visible;
+    transition: box-shadow 0.4s, transform 0.4s, border-color 0.4s;
 }
 
-.product-card:hover {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 16px 48px rgba(44,62,80,0.18);
-}
-
-.product-card::before {
+.product-card::before, .service-card::before {
     content: '';
     position: absolute;
-    top: 18px;
-    left: 18px;
-    width: calc(100% - 36px);
-    height: calc(100% - 36px);
-    border: 2px dashed #c59d5f;
-    border-radius: 12px;
-    opacity: 0.15;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 16px;
+    border: 2.5px dashed #c59d5f;
     pointer-events: none;
-    z-index: 0;
+    z-index: 2;
+    box-sizing: border-box;
+    transition: border-color 0.4s;
+}
+
+/* Diagonal cut on top-right corner */
+.product-card::after, .service-card::after {
+    content: '';
+    position: absolute;
+    top: -2px; right: -2px;
+    width: 48px; height: 48px;
+    background: linear-gradient(135deg, #fff 60%, transparent 100%);
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+    z-index: 3;
+    border-top-right-radius: 16px;
+}
+
+.product-card:hover, .service-card:hover {
+    box-shadow: 0 16px 48px rgba(197,157,95,0.18);
+    border-color: #c59d5f;
+    transform: translateY(-8px) scale(1.04);
+}
+.product-card:hover::before, .service-card:hover::before {
+    border-color: #b08d57;
 }
 
 .product-card img {
