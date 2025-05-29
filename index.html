@@ -8,33 +8,81 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <div class="logo-content">
-                    <svg width="150" height="60" viewBox="0 0 300 120" class="logo-svg">
-                        <!-- Background Mountains -->
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="logo-container">
+            <div class="logo-main">
+                <div class="mountain-container">
+                    <svg width="300" height="120" viewBox="0 0 300 120" class="mountain-svg">
                         <path d="M20 80 L60 30 L90 50 L120 20 L150 40 L180 15 L210 35 L240 25 L270 45 L280 80 Z" 
                               fill="#64748b" opacity="0.8"/>
-                        
-                        <!-- Foreground Mountains -->
                         <path d="M0 90 L40 40 L80 60 L120 25 L160 45 L200 20 L240 40 L280 30 L300 90 Z" 
                               fill="#475569"/>
-                        
-                        <!-- Snow Caps -->
                         <path d="M35 45 L40 40 L45 45 Z M115 30 L120 25 L125 30 Z M195 25 L200 20 L205 25 Z M275 35 L280 30 L285 35 Z" 
                               fill="white"/>
                     </svg>
-                    <div class="logo-text">
-                        <h1>VERONA MARBLE</h1>
-                        <div class="logo-divider">
-                            <div class="divider-line"></div>
-                            <span>&</span>
-                            <div class="divider-line"></div>
-                        </div>
-                        <h2>GRANITE IND.</h2>
+                </div>
+                <div class="company-name">
+                    <h1>VERONA MARBLE</h1>
+                    <div class="divider">
+                        <div class="divider-line"></div>
+                        <span class="divider-text">&</span>
+                        <div class="divider-line"></div>
+                    </div>
+                    <h2>GRANITE IND.</h2>
+                </div>
+                <div class="established">
+                    <div class="established-banner">
+                        <span class="established-text">Est. 2010</span>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content" class="main-content">
+        <header>
+            <nav>
+                <div class="logo">
+                    <div class="logo-content">
+                        <svg width="150" height="60" viewBox="0 0 300 120" class="logo-svg">
+                            <path d="M20 80 L60 30 L90 50 L120 20 L150 40 L180 15 L210 35 L240 25 L270 45 L280 80 Z" 
+                                  fill="#64748b" opacity="0.8"/>
+                            <path d="M0 90 L40 40 L80 60 L120 25 L160 45 L200 20 L240 40 L280 30 L300 90 Z" 
+                                  fill="#475569"/>
+                            <path d="M35 45 L40 40 L45 45 Z M115 30 L120 25 L125 30 Z M195 25 L200 20 L205 25 Z M275 35 L280 30 L285 35 Z" 
+                                  fill="white"/>
+                        </svg>
+                        <div class="logo-text">
+                            <h1>VERONA MARBLE</h1>
+                            <div class="logo-divider">
+                                <div class="divider-line"></div>
+                                <span>&</span>
+                                <div class="divider-line"></div>
+                            </div>
+                            <h2>GRANITE IND.</h2>
+                        </div>
+                    </div>
+                </div>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="gallery.html">Designs</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </header>
+
+        <section id="home" class="hero fade-in-up" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80'); background-size: cover; background-position: center; position: relative;">
+            <div class="hero-content">
+                <h1>Premium Marble & Granite Solutions</h1>
             </div>
             <ul>
                 <li><a href="#home">Home</a></li>
