@@ -1,3 +1,52 @@
+/* Add header and navigation styles */
+header {
+    background-color: #fff;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    color: #2c3e50;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #c59d5f;
+}
+
+.nav-toggle {
+    display: none;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -219,46 +268,6 @@ h1 {
     
     h1 {
         font-size: 2rem;
-    }
-    
-    /* Add mobile nav styles from main.css to ensure hamburger menu works */
-    .nav-toggle {
-        display: block;
-        cursor: pointer;
-    }
-    .nav-toggle span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background: #2c3e50;
-        margin: 5px 0;
-        transition: all 0.3s ease;
-    }
-    nav ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: white;
-        padding: 1rem;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    nav ul.open {
-        display: flex;
-    }
-    nav ul li {
-        margin: 1rem 0;
-    }
-    .nav-toggle.open span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-    .nav-toggle.open span:nth-child(2) {
-        opacity: 0;
-    }
-    .nav-toggle.open span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -7px);
     }
 }
 
