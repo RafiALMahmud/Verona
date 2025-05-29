@@ -44,6 +44,15 @@ prevBtn.addEventListener('click', () => {
 document.querySelector('.gallery-images').addEventListener('mouseenter', stopSlideshow);
 document.querySelector('.gallery-images').addEventListener('mouseleave', startSlideshow);
 
+// View Full Image button functionality
+const viewFullImageBtn = document.getElementById('view-full-image');
+viewFullImageBtn.addEventListener('click', () => {
+    const activeImg = document.querySelector('.gallery-img.active');
+    if (activeImg) {
+        window.open(activeImg.src, '_blank');
+    }
+});
+
 // Initialize
 showImage(currentIndex);
 startSlideshow(); 
