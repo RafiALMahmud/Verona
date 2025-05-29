@@ -93,6 +93,7 @@ nav ul li a:hover::after {
     height: 100vh;
     position: relative;
     overflow: hidden;
+    padding-top: 80px;
 }
 
 .hero-slide {
@@ -125,6 +126,11 @@ nav ul li a:hover::after {
 
 .hero-content {
     max-width: 800px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.2rem 0.8rem;
+    box-shadow: 0 2px 12px rgba(44,62,80,0.08);
+    margin: 0 auto;
 }
 
 .hero h1 {
@@ -443,6 +449,23 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
+    header {
+        padding: 0.5rem 0;
+        height: 56px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        border-bottom: 1px solid #eee;
+    }
+    .hero {
+        padding-top: 56px;
+    }
+    /* Keep hero text box white */
+    .hero-content {
+        background: #fff;
+        border-radius: 12px;
+        padding: 1.2rem 0.8rem;
+        box-shadow: 0 2px 12px rgba(44,62,80,0.08);
+        margin: 0 auto;
+    }
     nav {
         flex-direction: column;
         text-align: center;
