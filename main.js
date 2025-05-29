@@ -1,58 +1,104 @@
-// Gallery Carousel Functionality
+// Enhanced Gallery Carousel Functionality
 const galleryImages = document.querySelectorAll('.gallery-img');
 const prevBtn = document.querySelector('.gallery-prev');
 const nextBtn = document.querySelector('.gallery-next');
+const dotsContainer = document.querySelector('.gallery-dots');
+const toggleSlideshowBtn = document.getElementById('toggle-slideshow');
 let currentIndex = 0;
 let intervalId;
+let isPlaying = true;
 
+// Create dots for gallery navigation
+function createDots() {
+    galleryImages.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('gallery-dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
+}
+
+// Update dots active state
+function updateDots(index) {
+    const dots = document.querySelectorAll('.gallery-dot');
+    dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+    });
+}
+
+// Show specific image
 function showImage(index) {
     galleryImages.forEach((img, i) => {
         img.classList.toggle('active', i === index);
     });
+    updateDots(index);
 }
 
+// Navigate to specific slide
+function goToSlide(index) {
+    currentIndex = index;
+    showImage(currentIndex);
+    resetSlideshow();
+}
+
+// Next image with smooth transition
 function nextImage() {
     currentIndex = (currentIndex + 1) % galleryImages.length;
     showImage(currentIndex);
 }
 
+// Previous image with smooth transition
 function prevImage() {
     currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
     showImage(currentIndex);
 }
 
+// Start slideshow
 function startSlideshow() {
-    intervalId = setInterval(nextImage, 3000);
+    if (isPlaying) {
+        intervalId = setInterval(nextImage, 4000);
+    }
 }
 
+// Stop slideshow
 function stopSlideshow() {
     clearInterval(intervalId);
 }
 
-nextBtn.addEventListener('click', () => {
-    nextImage();
+// Reset slideshow (restart timer)
+function resetSlideshow() {
     stopSlideshow();
     startSlideshow();
+}
+
+// Toggle slideshow play/pause
+function toggleSlideshow() {
+    isPlaying = !isPlaying;
+    toggleSlideshowBtn.textContent = isPlaying ? 'Pause Slideshow' : 'Play Slideshow';
+    
+    if (isPlaying) {
+        startSlideshow();
+    } else {
+        stopSlideshow();
+    }
+}
+
+// Event listeners for gallery
+nextBtn.addEventListener('click', () => {
+    nextImage();
+    resetSlideshow();
 });
 
 prevBtn.addEventListener('click', () => {
     prevImage();
-    stopSlideshow();
-    startSlideshow();
+    resetSlideshow();
 });
 
+// Hover pause functionality
 document.querySelector('.gallery-images').addEventListener('mouseenter', stopSlideshow);
-document.querySelector('.gallery-images').addEventListener('mouseleave', startSlideshow);
-
-// View Full Image button functionality
-const viewFullImageBtn = document.getElementById('view-full-image');
-viewFullImageBtn.addEventListener('click', () => {
-    const activeImg = document.querySelector('.gallery-img.active');
-    if (activeImg) {
-        window.open(activeImg.src, '_blank');
-    }
+document.querySelector('.gallery-images').addEventListener('mouseleave', () => {
+    if (isPlaying) startSlideshow();
 });
 
-// Initialize
-showImage(currentIndex);
-startSlideshow(); 
+// Click on image to view full size
