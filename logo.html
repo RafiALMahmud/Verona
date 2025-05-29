@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verona Marble & Granite - Logo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cinzel', serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to bottom right, #f9fafb, #f3f4f6);
+        }
+
+        .logo-container {
+            position: relative;
+        }
+
+        .logo-main {
+            position: relative;
+            background: linear-gradient(to bottom, #e7e5e4, #d6d3d1);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border: 1px solid #d6d3d1;
+        }
+
+        .mountain-container {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .mountain-svg {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .company-name {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .company-name h1 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #1f2937;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .divider-line {
+            height: 1px;
+            background-color: #4b5563;
+            flex: 1;
+            max-width: 2rem;
+        }
+
+        .divider-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin: 0 0.75rem;
+        }
+
+        .company-name h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #1f2937;
+            letter-spacing: 0.05em;
+        }
+
+        .established {
+            text-align: center;
+        }
+
+        .established-banner {
+            display: inline-block;
+            background: linear-gradient(to right, #a8a29e, #78716c);
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.25rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .established-text {
+            color: white;
+            font-weight: 600;
+            font-size: 1.125rem;
+            font-style: italic;
+        }
+
+        .decorative {
+            position: absolute;
+            width: 1.5rem;
+            height: 1.5rem;
+            border: 2px solid #a8a29e;
+            transform: rotate(45deg);
+            opacity: 0.5;
+        }
+
+        .decorative-1 { top: 1rem; left: 1rem; }
+        .decorative-2 { top: 1rem; right: 1rem; }
+        .decorative-3 { bottom: 1rem; left: 1rem; }
+        .decorative-4 { bottom: 1rem; right: 1rem; }
+
+        .glow-effect {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, #e7e5e4, #d6d3d1);
+            border-radius: 0.5rem;
+            filter: blur(4px);
+            opacity: 0.3;
+            z-index: -1;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <!-- Main Logo Container -->
+        <div class="logo-main">
+            <!-- Mountain Design -->
+            <div class="mountain-container">
+                <svg width="300" height="120" viewBox="0 0 300 120" class="mountain-svg">
+                    <!-- Background Mountains -->
+                    <path d="M20 80 L60 30 L90 50 L120 20 L150 40 L180 15 L210 35 L240 25 L270 45 L280 80 Z" 
+                          fill="#64748b" opacity="0.8"/>
+                    
+                    <!-- Foreground Mountains -->
+                    <path d="M0 90 L40 40 L80 60 L120 25 L160 45 L200 20 L240 40 L280 30 L300 90 Z" 
+                          fill="#475569"/>
+                    
+                    <!-- Snow Caps -->
+                    <path d="M35 45 L40 40 L45 45 Z M115 30 L120 25 L125 30 Z M195 25 L200 20 L205 25 Z M275 35 L280 30 L285 35 Z" 
+                          fill="white"/>
+                </svg>
+            </div>
+
+            <!-- Company Name -->
+            <div class="company-name">
+                <h1>VERONA MARBLE</h1>
+                <div class="divider">
+                    <div class="divider-line"></div>
+                    <span class="divider-text">&</span>
+                    <div class="divider-line"></div>
+                </div>
+                <h2>GRANITE IND.</h2>
+            </div>
+
+            <!-- Established Banner -->
+            <div class="established">
+                <div class="established-banner">
+                    <span class="established-text">Est. 2010</span>
+                </div>
+            </div>
+
+            <!-- Decorative Elements -->
+            <div class="decorative decorative-1"></div>
+            <div class="decorative decorative-2"></div>
+            <div class="decorative decorative-3"></div>
+            <div class="decorative decorative-4"></div>
+        </div>
+
+        <!-- Outer Glow Effect -->
+        <div class="glow-effect"></div>
+    </div>
+</body>
+</html> 

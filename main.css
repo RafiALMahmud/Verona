@@ -38,8 +38,63 @@ nav {
 
 .logo {
     font-family: 'Cinzel', serif;
-    font-size: 1.5rem;
     color: var(--secondary-color);
+}
+
+.logo-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-svg {
+    width: 150px;
+    height: 60px;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-text h1 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    letter-spacing: 0.05em;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.logo-text h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    letter-spacing: 0.05em;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.logo-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.25rem 0;
+}
+
+.logo-divider .divider-line {
+    height: 1px;
+    background-color: var(--secondary-color);
+    width: 1rem;
+    opacity: 0.5;
+}
+
+.logo-divider span {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin: 0 0.5rem;
 }
 
 nav ul {
@@ -614,6 +669,21 @@ footer {
     .secondary-button {
         margin-left: 0;
         margin-top: 1rem;
+    }
+
+    .logo-content {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .logo-svg {
+        width: 120px;
+        height: 48px;
+    }
+
+    .logo-text h1,
+    .logo-text h2 {
+        font-size: 1rem;
     }
 }
 
