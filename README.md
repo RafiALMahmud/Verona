@@ -13,9 +13,9 @@ A professional website for a marble and granite company showcasing their product
 
 ## Project Structure
 
-- `main.html` - Main HTML file containing the website structure
+- `index.html` - Main HTML file containing the website structure
 - `main.css` - CSS styles for the website
-- `image.jpg` - Hero image and product images (you'll need to add your own images)
+- `image/` - Directory containing hero image and product images (you'll need to add your own images)
 
 ## Setup Instructions
 
